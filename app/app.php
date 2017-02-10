@@ -5,7 +5,7 @@
 
     session_start();
 
-    define('CONTACTS_SESSION_KEY', 'contacts_list');
+    define('CONTACTS_SESSION_KEY', 'list_of_contacts');
     if (empty($_SESSION[CONTACTS_SESSION_KEY])) {
         $_SESSION[CONTACTS_SESSION_KEY] = array();
     }
@@ -27,7 +27,7 @@
         $newcontact = new Contacts($_POST['first_name'], $_POST['last_name'], $_POST['phone_number'], $_POST['address']);
         $newcontact->save();
 
-        return $app['twig']->render('contacts_list.html.twig', array('newcontact' => $newcontact, 'contacts' => Contacts::getAll()));
+        return $app['twig']->render('create_contact.html.twig', array('newcontact' => $newcontact));
     });
 
     $app->post('/delete_contact', function() use ($app) {

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+        <title>Contacts List</title>
+    </head>
+    <body>
+        <div class="container">
+
+            <h4>Your contact has been created!</h4>
+
+            <p><strong>{{ newcontact.showFullName }}</strong></p>
+            <ul>
+                <li>Phone Number: {{ newcontact.getPhoneNumber }}</li>
+                <li>Address: {{ newcontact.getAddress }}</li>
+            </ul>
+
+            <h4><a href="/">Click here</a> to return to the Contacts list page.</h4>
+
+        </div>
+    </body>
+</html>
