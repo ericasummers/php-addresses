@@ -14,7 +14,7 @@
             <h1>My Address Book</h1>
 
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <div class="panel" id="add-form">
                         <div class="panel-body">
                             <h3>Add a contact:</h3>
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7">
 
                     <div class="panel" id="contacts-list">
                         <div class="panel-body">
@@ -60,13 +60,28 @@
                                 {% for contact in contacts %}
                                 <ul>
                                     <li><h5>{{ contact.showFullName }}</h5>
-                                    <strong>Email</strong>: {{ contact.getEmail }}
+                                    - <strong>Email</strong>: {{ contact.getEmail }}
                                     {% if contact.getPhoneNumber is not empty %}
-                                    <br><strong>Phone Number</strong>: {{ contact.getPhoneNumber }}
+                                    <br>- <strong>Phone Number</strong>: {{ contact.getPhoneNumber }}
                                     {% endif %}
                                     {% if contact.getAddress is not empty %}
-                                    <br><strong>Address</strong>: {{ contact.getAddress }}
+                                    <br>- <strong>Address</strong>: {{ contact.getAddress }}
                                     {% endif %}
+                                    <br><p></p>
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <form action="/update-contact" method="post">
+                                                <button type="submit" class="btn update-one-contact" name="{{ contact.getLastName }}">Update Contact</button>
+                                            </form>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <form action="/" method="post">
+                                                <button type="submit" class="btn delete-one-contact" name="{{ contact.getFirstName }}">Delete this contact</button>
+                                            </form>
+                                        </div>
+                                        <div class="col-sm-8">
+                                        </div>
+                                    </div>
                                     </li>
                                 </ul>
                                 {% endfor %}

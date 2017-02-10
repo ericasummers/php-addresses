@@ -79,3 +79,25 @@ h5 {
     display: block;
     margin: auto;
 }
+
+.delete-one-contact {
+    background: rgba(227, 200, 100, 0.5);
+    font-size: 10px;
+    margin-left: 0px;
+}
+
+.delete-one-contact:hover {
+    background: rgba(195, 152, 82, 0.8);
+    color: #FFFFFF;
+}
+
+.update-one-contact {
+    background: rgba(82, 195, 192, 0.5);
+    font-size: 10px;
+    margin-left: 0px;
+}
+
+.update-one-contact:hover {
+    background: rgba(58, 156, 153, 0.8);
+    color: #FFFFFF;
+}
