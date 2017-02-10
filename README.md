@@ -1,4 +1,4 @@
-# PHP Address Book
+# PHP Contacts List
 
 #### _A webpage that displays a contacts list, 10 February 2017_
 
@@ -16,31 +16,11 @@ This webpage will allow the user to enter a new contact and view a list of previ
 4. Open the directory http://localhost:8000/ in any standard web browser.
 
 ## Specifications
-* Phase 0 - Set up Silex / Twig Framework
-
-* Phase 1 - Focus on Backend Functions - Assume word "flabbergasted" and max wrong guesses of 7
 
 |Behavior|Input|Output|
 |--------|-----|------|
-| Show underscores | flabbergasted | _ _ _ _ _ _ _ _ _ _ _ _ _ |
-| Correct Letter | b | show 2 b's |
-| Incorrect Letter | i | show wrong guess count 1 |
-| Repeated guess | b (or i) | error message |
-| Repeated correct guesses | (other letters) | reveal more correct letters |
-| Finish word | all letters guessed | winning message |
-| Max wrong guesses | q etc. | losing message |
-
-* Phase 2 - Create engaging front End with existing backend functionality
-
-* Show hanged man on main page
-
-* Show underscored word underneath empty hangman and start game
-
-* Ask for a letter guess
-
-* Output letter if correct, or update hangman until win or lose
-
-* End specifications
+| Add Contact to List | "Bob James, 503-999-9876, 123 N West Drive, Portland OR" Click "Add Contact" | Input displayed on page: "Bob James, 503-999-9876, 123 N West Drive, Portland OR" |
+| Clear Contacts List | User clicks "Delete all" | List displays as empty |
 
 ## Known Bugs
 
