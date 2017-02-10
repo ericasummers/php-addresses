@@ -1,5 +1,5 @@
 <?php
-    class Contact
+    class Contacts
     {
         private $first_name;
         private $last_name;
@@ -57,6 +57,21 @@
         function showFullName()
         {
             return $this->first_name . " " . $this->last_name;
+        }
+
+        function save()
+        {
+            array_push($_SESSION[CONTACTS_SESSION_KEY], $this);
+        }
+
+        static function getAll()
+        {
+            return $_SESSION[CONTACTS_SESSION_KEY];
+        }
+
+        static function deleteAll()
+        {
+            $_SESSION[CONTACTS_SESSION_KEY] = array();
         }
 
     }

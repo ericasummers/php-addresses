@@ -18,19 +18,18 @@
         array('twig.path' => __DIR__.'/../views')
     );
 
-    $app->get('/', function() {
-        $bob = new Contact("Bob", "Smith", "999-123-4567", "12 Parallel Place, Portland OR");
-        $output = "";
-        $output .= "Welcome to your contacts list
-                    <br>" . $bob->showFullName();
+    $app->get('/', function() use ($app) {
+        $bob = new Contacts("Bob", "Smith", "999-123-4567", "12 Parallel Place, Portland OR");
 
-        return "$output";
+        return $app['twig']->render('contacts_list.html.twig', array('contacts' => Contacts::getAll()));
     });
 
-    // $app->post('/', function() use ($app) {
-    //
-    //     return $app['twig']->render('contacts_list.html.twig');
-    // });
+    $app->post('/create_contact', function() use ($app) {
+        $newcontact = new Contacts($_POST['first_name'], $_POST['last_name'], $_POST['phone_number'], $_POST['address']);
+        $newcontact->save();
+
+        return $app['twig']->render('contacts_list.html.twig', array('newcontact' => $newcontact, 'contacts' => Contacts::getAll()));
+    });
 
         return $app;
 ?>
