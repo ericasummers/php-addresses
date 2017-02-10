@@ -1,4 +1,4 @@
-# Hangman Game
+# PHP Address Book
 
 #### _A webpage that displays a contacts list, 10 February 2017_
 
