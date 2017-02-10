@@ -24,8 +24,17 @@
     });
 
     $app->post('/create_contact', function() use ($app) {
-        $newcontact = new Contacts($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['phone_number'], $_POST['address']);
-        $newcontact->save();
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $email = $_POST['email'];
+        $phone_number = $_POST['phone_number'];
+        $address = $_POST['address'];
+        if (!($first_name) || !($last_name) || !($email)) {
+            $newcontact = "";
+        } else {
+            $newcontact = new Contacts($first_name, $last_name, $email, $phone_number, $address);
+            $newcontact->save();
+        }
 
         return $app['twig']->render('create_contact.html.twig', array('newcontact' => $newcontact));
     });

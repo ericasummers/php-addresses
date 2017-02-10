@@ -11,6 +11,7 @@
         {
             $this->first_name = $new_first_name;
             $this->last_name = $new_last_name;
+            $this->email = $email;
             $this->phone_number = $new_phone_number;
             $this->address = $new_address;
         }

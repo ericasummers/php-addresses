@@ -14,12 +14,26 @@
 
             <div class="panel">
                 <div class="panel-body" id="add-entry">
+
+                    {% if newcontact is not empty %}
                     <h3>Your contact has been created!</h3>
                     <div id="new-contact-box">
                         <h2>{{ newcontact.showFullName }}</h2>
+                            <p><strong>Email</strong>: {{ newcontact.getEmail }}</p>
+                            {% if newcontact.getPhoneNumber is not empty %}
                             <p><strong>Phone Number</strong>: {{ newcontact.getPhoneNumber }}</p>
+                            {% endif %}
+                            {% if newcontact.getAddress is not empty %}
                             <p><strong>Address</strong>: {{ newcontact.getAddress }}</p>
+                            {% endif %}
                         </div>
+                    {% endif %}
+
+                    {% if newcontact is empty %}
+                    <h3>Your contact is not complete</h3>
+                    <p>Please return to the main page and complete all required fields to add your contact.</p>
+                    {% endif %}
+
                     <h4><a href="/">Click here</a> to return to the Contacts list page.</h4>
                 </div>
             </div>

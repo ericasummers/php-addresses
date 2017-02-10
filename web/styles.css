@@ -69,3 +69,8 @@ h5 {
 #new-contact-box h2 {
     color: #1C6D55;
 }
+
+#required, .error {
+    color: #C31919;
+    font-weight: bold;
+}
