@@ -19,7 +19,6 @@
     );
 
     $app->get('/', function() use ($app) {
-        $bob = new Contacts("Bob", "Smith", "999-123-4567", "12 Parallel Place, Portland OR");
 
         return $app['twig']->render('contacts_list.html.twig', array('contacts' => Contacts::getAll()));
     });
@@ -31,5 +30,12 @@
         return $app['twig']->render('contacts_list.html.twig', array('newcontact' => $newcontact, 'contacts' => Contacts::getAll()));
     });
 
+    $app->post('/delete_contact', function() use ($app) {
+        Contacts::deleteAll();
+
+        return $app['twig']->render('contacts_cleared.html.twig');
+    });
+
         return $app;
+
 ?>

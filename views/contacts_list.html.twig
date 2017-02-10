@@ -11,11 +11,13 @@
 
             {% if contacts is not empty %}
             <p>Here are all your contacts:</p>
-            <ul>
                 {% for contact in contacts %}
-                <li>{{ contact.showFullName }}, {{ contact.getPhoneNumber }}, {{ contact.getAddress }}</li>
+                <ul>
+                    <li><strong>Name</strong>: {{ contact.showFullName }}</li>
+                    <li><strong>Phone Number</strong>: {{ contact.getPhoneNumber }}</li>
+                    <li><strong>Address</strong>: {{ contact.getAddress }}</li>
+                </ul>
                 {% endfor %}
-            </ul>
             {% endif %}
 
             <h2>Please enter a contact to add to your contacts list:</h2>
@@ -39,8 +41,8 @@
                 <button class="btn btn-info" type="submit" name="add_new_contact_clicked">Add a Contact!</button>
             </form>
             <br>
-            <form action="/" method="post">
-                <button class="btn btn-danger" type="submit" name="delete_all_contacts_button_clicked">Delete All Contacts</button>
+            <form action="/delete_contact" method="post">
+                <button class="btn btn-danger" type="submit" name="delete_all_contacts_button_clicked">Clear All Contacts</button>
             </form>
         </div>
     </body>
