@@ -54,6 +54,11 @@
             $this->address = (string) $new_address;
         }
 
+        function showFullName()
+        {
+            return $this->first_name . " " . $this->last_name;
+        }
+
     }
 
 
