@@ -3,10 +3,11 @@
     {
         private $first_name;
         private $last_name;
+        private $email;
         private $phone_number;
         private $address;
 
-        function __construct($new_first_name, $new_last_name, $new_phone_number, $new_address)
+        function __construct($new_first_name, $new_last_name, $email, $new_phone_number, $new_address)
         {
             $this->first_name = $new_first_name;
             $this->last_name = $new_last_name;
@@ -32,6 +33,16 @@
         function setLastName($new_last_name)
         {
             $this->last_name = (string) $new_last_name;
+        }
+
+        function getEmail()
+        {
+            return $this->email;
+        }
+
+        function setEmail($new_email)
+        {
+            $this->email = (string) $new_email;
         }
 
         function getPhoneNumber()
