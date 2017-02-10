@@ -2,48 +2,73 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+        <link href="/styles.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Sansita" rel="stylesheet">
         <title>Contacts List</title>
     </head>
     <body>
+        <img src="/tree_bg.jpg" id="hide-pic">
+
         <div class="container">
 
-            <h1>Contacts List</h1>
+            <h1>My Address Book</h1>
 
-            {% if contacts is not empty %}
-            <p>Here are all your contacts:</p>
-                {% for contact in contacts %}
-                <ul>
-                    <li><strong>Name</strong>: {{ contact.showFullName }}</li>
-                    <li><strong>Phone Number</strong>: {{ contact.getPhoneNumber }}</li>
-                    <li><strong>Address</strong>: {{ contact.getAddress }}</li>
-                </ul>
-                {% endfor %}
-            {% endif %}
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel" id="add-form">
+                        <div class="panel-body">
+                            <h3>Add a contact:</h3>
+                            <form action="/create_contact" method="post">
+                                <div class="form-group">
+                                    <label for="first_name">First Name:</label>
+                                    <input id="first_name" class="form-control" name="first_name" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="last_name">Last Name:</label>
+                                    <input id="last_name" class="form-control" name="last_name" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone_number">Phone number:</label>
+                                    <input id="phone_number" class="form-control" name="phone_number" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Street Address:</label>
+                                    <input id="address" class="form-control" name="address" type="text">
+                                </div>
+                                <button class="btn" id="add-button" type="submit" name="add_new_contact_clicked">Add a Contact!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
 
-            <h2>Please enter a contact to add to your contacts list:</h2>
-            <form action="/create_contact" method="post">
-                <div class="form-group">
-                    <label for="first_name">First Name:</label>
-                    <input id="first_name" class="form-control" name="first_name" type="text">
+                    <div class="panel" id="contacts-list">
+                        <div class="panel-body">
+
+                            <h3>Contacts List</h3>
+                            {% if contacts is not empty %}
+                            <p>Here are all your contacts:</p>
+                                {% for contact in contacts %}
+                                <ul>
+                                    <li><h5>{{ contact.showFullName }}</h5>
+                                    <strong>Phone Number</strong>: {{ contact.getPhoneNumber }}
+                                    <br><strong>Address</strong>: {{ contact.getAddress }}</li>
+                                </ul>
+                                {% endfor %}
+                            {% endif %}
+                            <br>
+                            <form action="/delete_contact" method="post">
+                                <button class="btn" id="delete-button" type="submit" name="delete_all_contacts_button_clicked">Clear All Contacts</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="last_name">Last Name:</label>
-                    <input id="last_name" class="form-control" name="last_name" type="text">
-                </div>
-                <div class="form-group">
-                    <label for="phone_number">Phone number:</label>
-                    <input id="phone_number" class="form-control" name="phone_number" type="text">
-                </div>
-                <div class="form-group">
-                    <label for="address">Street Address:</label>
-                    <input id="address" class="form-control" name="address" type="text">
-                </div>
-                <button class="btn btn-info" type="submit" name="add_new_contact_clicked">Add a Contact!</button>
-            </form>
-            <br>
-            <form action="/delete_contact" method="post">
-                <button class="btn btn-danger" type="submit" name="delete_all_contacts_button_clicked">Clear All Contacts</button>
-            </form>
+            </div>
+
+            <footer class="footer">
+                <p>Copyright Erica Wright</p>
+            </footer>
+
         </div>
     </body>
 </html>

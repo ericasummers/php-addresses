@@ -2,20 +2,27 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+        <link href="/styles.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Sansita" rel="stylesheet">
         <title>Contacts List</title>
     </head>
     <body>
         <div class="container">
+            <img src="/tree_bg.jpg" id="hide-pic">
 
-            <h4>Your contact has been created!</h4>
+            <h1>Contacts List</h1>
 
-            <p><strong>{{ newcontact.showFullName }}</strong></p>
-            <ul>
-                <li>Phone Number: {{ newcontact.getPhoneNumber }}</li>
-                <li>Address: {{ newcontact.getAddress }}</li>
-            </ul>
-
-            <h4><a href="/">Click here</a> to return to the Contacts list page.</h4>
+            <div class="panel">
+                <div class="panel-body" id="add-entry">
+                    <h3>Your contact has been created!</h3>
+                    <div id="new-contact-box">
+                        <h2>{{ newcontact.showFullName }}</h2>
+                            <p><strong>Phone Number</strong>: {{ newcontact.getPhoneNumber }}</p>
+                            <p><strong>Address</strong>: {{ newcontact.getAddress }}</p>
+                        </div>
+                    <h4><a href="/">Click here</a> to return to the Contacts list page.</h4>
+                </div>
+            </div>
 
         </div>
     </body>
