@@ -26,6 +26,10 @@
                             {% if newcontact.getAddress is not empty %}
                             <p><strong>Address</strong>: {{ newcontact.getAddress }}</p>
                             {% endif %}
+
+                            {% set counter = ( counter | default(0) ) + 1 %}
+                            {% set newcontact->uniqueID = {{ counter }} %}
+                            <p>{{ newcontact.getUniqueID }}</p>
                         </div>
                     {% endif %}
 

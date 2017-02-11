@@ -38,17 +38,17 @@
     });
 
     $app->post('/create_contact', function() use ($app) {
-
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
         $email = $_POST['email'];
         $phone_number = $_POST['phone_number'];
         $address = $_POST['address'];
+        $new_ID = 1;
 
         if (!($first_name) || !($last_name) || !($email)) {
             $newcontact = "";
         } else {
-            $newcontact = new Contacts($first_name, $last_name, $email, $phone_number, $address);
+            $newcontact = new Contacts($first_name, $last_name, $email, $phone_number, $address, $new_ID);
             $newcontact->save();
         }
 

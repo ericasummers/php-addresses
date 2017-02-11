@@ -6,16 +6,16 @@
         private $email;
         private $phone_number;
         private $address;
-        // private $uniqueID;
+        public $uniqueID;
 
-        function __construct($new_first_name, $new_last_name, $email, $new_phone_number, $new_address)
+        function __construct($new_first_name, $new_last_name, $email, $new_phone_number, $new_address, $new_ID)
         {
             $this->first_name = $new_first_name;
             $this->last_name = $new_last_name;
             $this->email = $email;
             $this->phone_number = $new_phone_number;
             $this->address = $new_address;
-            // $this->uniqueID = $new_ID;
+            $this->uniqueID = $new_ID;
         }
 
         function getFirstName()
@@ -68,15 +68,15 @@
             $this->address = (string) $new_address;
         }
 
-        // function getUniqueID()
-        // {
-        //     return $this->uniqueID;
-        // }
-        //
-        // function setuniqueID($new_ID)
-        // {
-        //     $this->uniqueID = (float) $new_ID;
-        // }
+        function getUniqueID()
+        {
+            return $this->uniqueID;
+        }
+
+        function setUniqueID($new_ID)
+        {
+            $this->uniqueID = (float) $new_ID;
+        }
 
         function showFullName()
         {
