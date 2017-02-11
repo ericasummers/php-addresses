@@ -6,6 +6,7 @@
         private $email;
         private $phone_number;
         private $address;
+        // private $uniqueID;
 
         function __construct($new_first_name, $new_last_name, $email, $new_phone_number, $new_address)
         {
@@ -14,6 +15,7 @@
             $this->email = $email;
             $this->phone_number = $new_phone_number;
             $this->address = $new_address;
+            // $this->uniqueID = $new_ID;
         }
 
         function getFirstName()
@@ -66,6 +68,16 @@
             $this->address = (string) $new_address;
         }
 
+        // function getUniqueID()
+        // {
+        //     return $this->uniqueID;
+        // }
+        //
+        // function setuniqueID($new_ID)
+        // {
+        //     $this->uniqueID = (float) $new_ID;
+        // }
+
         function showFullName()
         {
             return $this->first_name . " " . $this->last_name;
@@ -74,6 +86,11 @@
         function save()
         {
             array_push($_SESSION[CONTACTS_SESSION_KEY], $this);
+        }
+
+        function deleteContact()
+        {
+            array_splice($_SESSION[CONTACTS_SESSION_KEY], $this);
         }
 
         static function getAll()

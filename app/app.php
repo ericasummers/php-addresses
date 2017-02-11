@@ -23,12 +23,28 @@
         return $app['twig']->render('contacts_list.html.twig', array('contacts' => Contacts::getAll()));
     });
 
+    $app->post('/update-contact', function() use ($app) {
+        // for ($i = 1; $i <= count($_SESSION[CONTACTS_SESSION_KEY]); $i++) {
+        //     $contactID = Contacts;
+        //     if (array_key_exists($i, $_POST)) {
+        //         $contactID->deleteContact();
+        //     } else {
+        //         var_dump(Contacts);
+        //     }
+
+        // }
+
+        return $app['twig']->render('update-one-contact.html.twig', array('contacts' => Contacts::getAll()));
+    });
+
     $app->post('/create_contact', function() use ($app) {
+
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
         $email = $_POST['email'];
         $phone_number = $_POST['phone_number'];
         $address = $_POST['address'];
+
         if (!($first_name) || !($last_name) || !($email)) {
             $newcontact = "";
         } else {
