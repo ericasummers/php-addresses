@@ -28,11 +28,21 @@
         {
             $index_value = $input - 1;
             unset($_SESSION[CONTACTS_SESSION_KEY][$index_value]);
+            $updated_array = array_values($_SESSION[CONTACTS_SESSION_KEY]);
+        }
+
+        function updateThisContact($input)
+        {
+            $index_value = $input - 1;
+            echo "This is updated";
         }
 
         for ($index = 1; $index <= count(CONTACTS_SESSION_KEY); $index++) {
             if (array_key_exists($index, $_POST)) {
                 deleteThisContact($index);
+            }
+            if (array_key_exists(("update-" . $index . ""), $_POST)) {
+                updateThisContact($index);
             }
         }
 

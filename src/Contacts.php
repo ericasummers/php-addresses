@@ -88,11 +88,6 @@
             array_push($_SESSION[CONTACTS_SESSION_KEY], $this);
         }
 
-        function deleteContact()
-        {
-            array_splice($_SESSION[CONTACTS_SESSION_KEY], $this);
-        }
-
         static function getAll()
         {
             return $_SESSION[CONTACTS_SESSION_KEY];
