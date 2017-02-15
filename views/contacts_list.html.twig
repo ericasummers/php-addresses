@@ -73,15 +73,10 @@
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <form action="/update-contact" method="post">
-                                                <button type="submit" class="btn update-one-contact" name="update-{{ counter }}">Update Contact</button>
-                                            </form>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <form action="/update-contact" method="post">
                                                 <button type="submit" class="btn delete-one-contact" name="{{ counter }}" id="{{ contact.getFirstName }}-{{ contact.getLastName }}">Delete this contact</button>
                                             </form>
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-10">
                                         </div>
                                     </div>
                                     </li>
