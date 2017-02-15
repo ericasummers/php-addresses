@@ -24,15 +24,19 @@
     });
 
     $app->post('/update-contact', function() use ($app) {
-        // for ($i = 1; $i <= count($_SESSION[CONTACTS_SESSION_KEY]); $i++) {
-        //     $contactID = Contacts;
-        //     if (array_key_exists($i, $_POST)) {
-        //         $contactID->deleteContact();
-        //     } else {
-        //         var_dump(Contacts);
-        //     }
+        function deleteThisContact($input)
+        {
+            $index_value = $input - 1;
+            unset($_SESSION[CONTACTS_SESSION_KEY][$index_value]);
+        }
 
-        // }
+        for ($index = 1; $index <= count(CONTACTS_SESSION_KEY); $index++) {
+            if (array_key_exists($index, $_POST)) {
+                deleteThisContact($index);
+            }
+        }
+
+
 
         return $app['twig']->render('update-one-contact.html.twig', array('contacts' => Contacts::getAll()));
     });
